@@ -19,6 +19,7 @@ body{
 a{
     text-decoration: none;
     transition-duration: 0.4s;
+    
 }
 
 a:active{
@@ -94,6 +95,8 @@ h3 a{
 
 h3 a:hover{
     color: #8758FF;
+    filter: blur(2px);
+    
 }
 
 /* projects */
@@ -141,6 +144,47 @@ h1.project-title{
 h1.project-title a:hover{
     color:#8758FF ;
     cursor: pointer;
+}
+
+
+/* contact */
+
+.contact-container{
+    color: #FAF6F0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.contact-title{
+    width: 50vw;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.contact-title hr{
+    width: 100%;
+}
+
+.contact-container h1{
+    font-size: 67.77px;
+}
+
+.contact-container h2{
+    font-size: 41.89px;
+    align-self: flex-end;
+}
+
+.contact-info{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50vw;
 }
 
 /* mobile */
