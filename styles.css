@@ -43,6 +43,11 @@ body {
     100% { transform: scale(1); }
 }
 
+
+html{
+    scroll-behavior: smooth;
+}
+
 /* Typography */
 h1, h2, h3 {
     font-family: 'Bodoni Moda', serif;
