@@ -48,3 +48,49 @@ if (window.innerWidth >= 1024) {
         });
     });
 }
+
+
+// Smooth scrolling with drag effect
+let isScrolling = false;
+let startY;
+let startScrollTop;
+let animationId;
+
+function smoothScroll(timestamp) {
+    if (!isScrolling) return;
+
+    const currentY = window.pageYOffset;
+    const distance = startY - currentY;
+    const speed = 0.1; // Adjust this value to change the drag effect (lower = more drag)
+
+    window.scrollTo(0, startScrollTop - distance * speed);
+
+    if (Math.abs(distance) > 1) {
+        animationId = requestAnimationFrame(smoothScroll);
+    } else {
+        isScrolling = false;
+    }
+}
+
+document.addEventListener('mousedown', (e) => {
+    isScrolling = true;
+    startY = e.pageY;
+    startScrollTop = window.pageYOffset;
+    cancelAnimationFrame(animationId);
+});
+
+document.addEventListener('mouseup', () => {
+    isScrolling = false;
+});
+
+document.addEventListener('mousemove', (e) => {
+    if (!isScrolling) return;
+    e.preventDefault();
+    animationId = requestAnimationFrame(smoothScroll);
+});
+
+// Prevent default drag behavior on the project container
+const projectContainer = document.querySelector('.project-container');
+projectContainer.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+});
